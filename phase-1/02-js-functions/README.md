@@ -52,8 +52,8 @@ function init(){
 }
 
 ```
-
-Change the console.log to a `return` statement and prompt students to think of ways to test this out for expected output.
+Invoke function in console to demonstrate how to test functions
+Change the console.log to a `return` statement
 
 ```
 Store in a variable and console.log variable
@@ -86,28 +86,17 @@ console.log('Rendering Pikachu!')
 }
 ```
 
-Ask students how this function can be made shorter
-
-```
-const renderPokemon = () => console.log('Rendering Pikachu!')
-```
-
-Talk about the side effects of the above code and how it hard coded and we want to write code that is reusable. So we can use parameters to pass in values as arguments that will be used in the functions program.
+Talk about the side effects of the above code and how its hard coded and we want to write code that is reusable. So we can use parameters to pass in values as arguments that will be used in the functions program.
 This helps our functions be more dynamic and reusable.
 
 Pass a parameter to renderPokemon and use interpolation to dynamically log the different characters.
 
+This is one of the most confusing concepts for students, so spend some time here ensuring to emphasize the difference between a parameter and argument
+
 ```
-const renderPokemon = (pokemon) => {
+function renderPokemon(pokemon){
 console.log(`Rendering ${pokemon}`)
 }
-```
-
-Can be re-written:
-
-```
-const renderPokemon = pokemon => console.log(`Rendering ${pokemon}`)
-
 ```
 
 #### First class functions
