@@ -1,3 +1,10 @@
+// Events 
+// event listener: attach it to the target, element
+  // inline 
+  // .addEventListener() first argument is the event type, second argument is a callback function that executes upon the reacted event
+// event type
+// event handler: callback function that indicates what is to occur upon that event
+
 const pokemons = [
   {
     id: 1,
@@ -56,15 +63,62 @@ function renderPokemon(pokemon) {
   const likeBttn = document.createElement("button");
   likeBttn.className = "like-bttn";
   likeBttn.textContent = "♥";
+  likeBttn.addEventListener('click', () => increaseLikes(pokemon, likesNum))
 
   const deleteBttn = document.createElement("button");
   deleteBttn.className = "delete-bttn";
   deleteBttn.textContent = "Delete";
+  // deleteBttn.addEventListener('click', () => pokeCard.remove())
+  deleteBttn.addEventListener('click', () => deletePoke(pokeCard))
 
   pokeCard.append(pokeImg, pokeName, pokeLikes, likesNum, likeBttn, deleteBttn);
   pokeContainer.appendChild(pokeCard);
 }
 
-pokemons.forEach(function(pokemon){
+function createPokemon(event){ // event object only gets defined when an event occurs
+  event.preventDefault() // preventing the forms default behavior
+  // grab the values of the form 
+  const name = document.querySelector('#name-input').value
+  const img = event.target.querySelector('#img-input').value
+
+  // want to create a new pokemon object with those values
+  const pokemon = {
+    name: name,
+    img: img,
+    likes: 0,
+    id: 6 // NEEDS TO CHANGE
+  }
+  // Render the new character onto the DOM
   renderPokemon(pokemon)
-})
+
+  // clear the form
+  pokeForm.reset()
+}
+
+function increaseLikes(pokemon, likesNum){
+  // increase likes by 1 
+  ++pokemon.likes
+
+  // change text on the DOM to reflect the update
+  likesNum.textContent = pokemon.likes
+}
+
+function deletePoke(card){
+  card.remove();
+}
+
+
+// responsible for running any javascript on page land or refresh
+function init(){
+  pokemons.forEach(function(pokemon){
+    renderPokemon(pokemon)
+  })
+  // pokeForm.addEventListener('submit', function(event){
+  //   event.preventDefault() // only works with a form
+  //   console.log(event)
+  //   // console.log()
+  // })
+  pokeForm.addEventListener('submit', createPokemon)
+}
+
+init()
