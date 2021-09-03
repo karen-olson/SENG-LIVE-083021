@@ -56,13 +56,15 @@ function renderPokemon(pokemon) {
   const likeBttn = document.createElement("button");
   likeBttn.className = "like-bttn";
   likeBttn.textContent = "♥";
-  likeBttn.addEventListener("click", () => increaseLike(pokemon, likesNum));
 
   const deleteBttn = document.createElement("button");
   deleteBttn.className = "delete-bttn";
   deleteBttn.textContent = "Delete";
-  deleteBttn.addEventListener("click", () => deletePoke(pokeCard));
 
   pokeCard.append(pokeImg, pokeName, pokeLikes, likesNum, likeBttn, deleteBttn);
   pokeContainer.appendChild(pokeCard);
 }
+
+pokemons.forEach(function(pokemon){
+  renderPokemon(pokemon)
+})
