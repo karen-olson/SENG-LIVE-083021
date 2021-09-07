@@ -1,35 +1,18 @@
-const pokemons = [
-  {
-    id: 1,
-    name: "bulbasaur",
-    img: "https://static.wikia.nocookie.net/kingdom-keymasters-database/images/2/27/001Bulbasaur_XY_anime.png/revision/latest?cb=20160927122032",
-    likes: 4,
-  },
-  {
-    id: 2,
-    name: "ivysaur",
-    img: "https://static.wikia.nocookie.net/kingdom-keymasters-database/images/c/ca/002Ivysaur_XY_anime_2.png/revision/latest?cb=20161017212021",
-    likes: 21,
-  },
-  {
-    id: 3,
-    name: "venusaur",
-    img: "https://images.saymedia-content.com/.image/t_share/MTc2MjYwODQ5NTk2NTcyODYy/pokemon-venusaur-nicknames.png",
-    likes: 7,
-  },
-  {
-    id: 4,
-    name: "charmander",
-    img: "https://pixy.org/download/1207107/",
-    likes: 20,
-  },
-  {
-    id: 5,
-    name: "charmeleon",
-    img: "https://static.wikia.nocookie.net/pokemon-quest-adventures/images/a/a4/005Charmeleon_XY_anime_2.png/revision/latest?cb=20170313041459",
-    likes: 11,
-  },
-];
+// What is fetch?
+// simpler, easy to use method for consuming asyncronously from a 3rd api
+// allows us push and pull data from a server
+// asynchronous 
+// its just a method, ran on the window which means it doesnt need to be called on anything 
+
+// how to use fetch
+// fetch(endpoint, [options]***) //promises 
+// .then() // do something with the promise // return another promise
+// .then() // do something with the received data 
+
+// Fetch by default is going to make a get request
+
+// Promise - IOU from the server, an object
+// has 3 different statuses: pending, fulfilled, rejected
 
 const pokeContainer = document.getElementById("poke-container");
 const pokeForm = document.getElementById("poke-form");
@@ -91,11 +74,38 @@ function deletePoke(card) {
   card.remove();
 }
 
+// R in CRUD: Retrieving resources 
+function getPokemons(){
+  // making a get request 
+  fetch('http://localhost:3000/pokemons') // returns a promise
+  // take the promise, and turn into json
+  .then(function(response){
+    return response.json() // turning into json so that its easier to access values
+  }) // return another promise
+  .then(function(pokemonsArray){
+    // do something with pokemonsArray
+    // specific to your application design
+    pokemonsArray.forEach(function(pokemon){
+      renderPokemon(pokemon)
+    })
+  })
+}
+
 function init() {
-  pokemons.forEach(function (pokemon) {
-    renderPokemon(pokemon);
-  });
+  getPokemons()
   pokeForm.addEventListener("submit", createPokemon);
 }
 
 init();
+
+
+// Exercise Solution
+
+const inputBttn = document.querySelector('input[type="submit"]');
+inputBttn.addEventListener("click", function (e) {
+  // need to grab the value of the form
+  const query = document.querySelector('input[type="text"]').value;
+  fetch(`${BASE_URL}${query}`)
+    .then((resp) => resp.json())
+    .then((data) => console.log(data));
+});
