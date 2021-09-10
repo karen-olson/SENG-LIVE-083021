@@ -1,3 +1,20 @@
+// Warmup: What are the four most popularly used HTTP Verbs and the actions associated with them?
+
+// GET: retrieve resources
+// POST: create a new resource
+// PUT/PATCH: update an existing resource
+// DELETE: zap the resource, the internet never forgets 
+const BASE_URL = "http://localhost:3000/pokemons"
+
+// making a fetch request
+// fetch is asynchronous 
+// fetch(BASE_URL) // produces a promise 
+// // What is a promise? IOU 
+// .then(resp => resp.json()) // why a .then???
+// .then(pokemonsArray => {
+//   // do something with teh pokemonsArray
+// })
+
 const pokeContainer = document.getElementById("poke-container");
 const pokeForm = document.getElementById("poke-form");
 
@@ -39,13 +56,29 @@ function createPokemon(event) {
   const name = document.querySelector("#name-input").value;
   const img = event.target.querySelector("#img-input").value;
 
-  const pokemon = {
+  const pokemon = { //plain old javascript object
     name: name,
     img: img,
     likes: 0,
-    id: 6, // NEEDS TO CHANGE
   };
-  renderPokemon(pokemon);
+
+  const configObj = {
+    method: "POST", //;overwriting the default get request made by fetch
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(pokemon)
+  }
+
+  // the url we are sending the data to
+  // pessimistic rendering
+  fetch(BASE_URL, configObj)
+  .then(function(resp){
+    return resp.json()
+  })
+  .then(function(pokemon){
+    renderPokemon(pokemon);
+  })
   pokeForm.reset();
 }
 
@@ -57,8 +90,9 @@ function increaseLikes(pokemon, likesNum) {
 function deletePoke(card) {
   card.remove();
 }
+
 function getPokemons() {
-  fetch("http://localhost:3000/pokemons") // returns a promise
+  fetch(BASE_URL) // returns a promise
     .then(function (response) {
       return response.json();
     })
@@ -69,9 +103,25 @@ function getPokemons() {
     });
 }
 
+function submitFunction(e){
+  // what to do here???
+  e.preventDefault()
+
+
+  // make a request to server 
+}
+
 function init() {
   getPokemons();
   pokeForm.addEventListener("submit", createPokemon);
+  const commentForm = document.querySelector('#comment-form')
+  console.log(commentForm)
+  commentForm.addEventListener('submit', submitFunction)
 }
 
 init();
+
+
+// add event listener of a submit type to the comments form 
+// how?
+// where?
