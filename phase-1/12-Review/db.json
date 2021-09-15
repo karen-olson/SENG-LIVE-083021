@@ -1,22 +1,40 @@
 {
   "items": [
     {
-      "id": 1,
-      "name": "apples",
-      "quantity": 4,
-      "completed": false
-    },
-    {
-      "id": 2,
-      "name": "celery",
-      "quantity": 1,
-      "completed": false
-    },
-    {
       "id": 3,
       "name": "gatorade",
       "quantity": 5,
-      "completed": false
+      "completed": true
+    },
+    {
+      "name": "apples",
+      "quantity": "4",
+      "completed": true,
+      "id": 4
+    },
+    {
+      "name": "strawberries",
+      "quantity": "4",
+      "completed": false,
+      "id": 6
+    },
+    {
+      "name": "apples",
+      "quantity": "1",
+      "completed": true,
+      "id": 7
+    },
+    {
+      "name": "toast",
+      "quantity": "1",
+      "completed": false,
+      "id": 13
+    },
+    {
+      "name": "pre-made banana bread`",
+      "quantity": "1",
+      "completed": false,
+      "id": 14
     }
   ]
 }
