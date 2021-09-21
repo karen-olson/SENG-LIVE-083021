@@ -1,0 +1,35 @@
+.general-form{
+    display:flex;
+    flex-direction: column;
+    width: 300px;
+    text-align: center;
+}
+.general-form input{
+    width: 100%;
+}
+.general-form textarea{
+    width: 100%;
+}
+
+
+
+.row-menu{
+    display: flex;
+}
+.row-menu div{
+    padding:3px;
+    margin: 3px;
+}
+
+.book-card{
+    border-style: solid;
+    padding:3px;
+    margin: 3px; 
+    min-width: 300px;
+    max-width: 300px;
+}
+
+.book-container{
+    display: flex;
+    flex-wrap: wrap;
+}
