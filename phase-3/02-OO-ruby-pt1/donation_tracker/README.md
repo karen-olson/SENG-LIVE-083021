@@ -9,7 +9,7 @@
 
 - Create and encapsulate logic for a donation class/instance
 
-### Lecture Take aways 
+### Lecture Take aways
 
 - Classes
 - Instances
@@ -23,42 +23,46 @@
 ### Object-Orientation
 
 - In the 1970's, Adele Goldberg (Links to an external site.) and Alan Kay (Links to an external site.) developed an object-oriented language at Xerox PARC called SmallTalk, which was used in the first personal computer.
+- OOP is a type of computer programming language that arose as a solution and response to bigger and more complex code.
+- Everything in Ruby is an object
+- Abstraction, polymorphism, inheritance and encapsulation form four of the main pillars of OOP
 - In Ruby, (almost) everything is an object. Every bit of information and code can be given their own properties and actions(aka methods).
 - Ruby comes with a few types of Objects to get us started, things like:
- - [Integer](https://ruby-doc.org/core-2.5.0/Integer.html)
- - [String](https://ruby-doc.org/core-3.0.2/String.html)
- - [Array](https://ruby-doc.org/core-2.7.0/Array.html)
+- [Integer](https://ruby-doc.org/core-2.5.0/Integer.html)
+- [String](https://ruby-doc.org/core-3.0.2/String.html)
+- [Array](https://ruby-doc.org/core-2.7.0/Array.html)
 
- - What is an object? An object is a combo of data and behaviors 
+- What is an object? An object is a combo of data and behaviors
 
- ### Making Objects
+### Making Objects
 
- #### Classes
- 
- - Outside of using prebuilt Ruby objects such as the ones listed above, we can also create our own custom ones.
- - To do so, we start by building a class. 
- - What is a class? A class is a blueprint that defines the way that each of its products will behave as well as what data will it contain
- 
- Let's create a class for donations:
+#### Classes
+
+- Outside of using prebuilt Ruby objects such as the ones listed above, we can also create our own custom ones.
+- To do so, we start by building a class.
+- What is a class? A class is a blueprint that defines the way that each of its products will behave as well as what data will it contain
+
+Let's create a class for donations:
 
 ```ruby
 class Donation
 
-end 
+end
 ```
 
-- What can be done with a class? We can add methods that belong to each instance of the class, methods that belong to the class as a whole as well as data that belongs to each instance or the class as a whole. 
+- What can be done with a class? We can add methods that belong to each instance of the class, methods that belong to the class as a whole as well as data that belongs to each instance or the class as a whole.
 - We can also use prebuilt class methods: try `Donation.methods` to see a list of class methods already available.
 
-#### Instances 
+#### Instances
 
-- Once a class has been defined, we can now produce new objects or `instances` from this class. 
-- To create a new `instance`, `.new` will be called on the class itself 
+- Once a class has been defined, we can now produce new objects or `instances` from this class.
+- To create a new `instance`, `.new` will be called on the class itself
 
 ```ruby
 new_donation = Donation.new
 ```
-- Each instance is unique to another instance. 
+
+- Each instance is unique to another instance.
 - Instances also come with their own pre-built methods, or we can define our own. Try: `new_donation.methods`
 
 ```ruby
@@ -78,23 +82,23 @@ try:
 
 ```ruby
 
-class Donation 
+class Donation
     def initialize
         puts "inside initialize"
-    end 
-end 
+    end
+end
 
 binding.pry
- 
+
  # inside the pry console run: Donation.new
- # Here we can see 'inside initialize' automatically printed upon the `.new` method invokation. 
+ # Here we can see 'inside initialize' automatically printed upon the `.new` method invokation.
 
 ```
 
 #### Instance variables
 
 - The way we can attach bits of data about each instance to itself
-- Instance variables are attached to the instance itself! It becomes the instances property. 
+- Instance variables are attached to the instance itself! It becomes the instances property.
 
 ```ruby
 class Donation
@@ -102,8 +106,8 @@ class Donation
         @organization = organization
         @amount = amount
         @date = date
-    end 
-end 
+    end
+end
 
 donation = Donation.new('American Heart Association', 100.00, Time.now)
 binding.pry
@@ -111,16 +115,17 @@ binding.pry
 # Now try to run: donation.organization
 # What was the result of this execution and why did it happen?
 ```
+
 #### Instance Methods
 
-- These are methods, or messages, that are sent to the instance the method is being called on. 
-- To read the values of our instances properties, we will want to create 2 particular instance methods, a setter and getter. 
+- These are methods, or messages, that are sent to the instance the method is being called on.
+- To read the values of our instances properties, we will want to create 2 particular instance methods, a setter and getter.
 
 #### Setter and Getter methods
 
-- Although we can instantiate a new object with some initial data through the initialize method, we need a way to read that data as well as update. 
+- Although we can instantiate a new object with some initial data through the initialize method, we need a way to read that data as well as update.
 - Setter method will allow us to update the value of an instance variable/property
-- Getter method will allow to read the value of an instance variable/property 
+- Getter method will allow to read the value of an instance variable/property
 
 To fix the error we received previously when running `donation.organization`, let's create a getter method.
 
@@ -128,11 +133,11 @@ To fix the error we received previously when running `donation.organization`, le
 
 def organization
     @organization
-end 
+end
 
 ```
 
-- This method is simply returning the value of the instance variable we set on the donation instance. 
+- This method is simply returning the value of the instance variable we set on the donation instance.
 
 Next let's create a method that would allow us to update the value of an instance variable, the setter:
 
@@ -140,11 +145,11 @@ Next let's create a method that would allow us to update the value of an instanc
 
 def organization=(organization)
     @organization = organization
-end 
+end
 
 ```
 
-- Here the `=` sign serves no functional purpose, it is just a convential syntax for identifying a setter method. 
+- Here the `=` sign serves no functional purpose, it is just a convential syntax for identifying a setter method.
 
 Let's update the organization for our donation instance
 
@@ -156,8 +161,8 @@ donation.organization = "Kidney Foundation"
 
 #### Attr Macros
 
-- Writing out setter and getter methods for each attribute can potentially create a lot of lines of code. 
-- We can use macros!!!  
+- Writing out setter and getter methods for each attribute can potentially create a lot of lines of code.
+- We can use macros!!!
 
 ```ruby
 attr_accessor :organization, :amount, :date
