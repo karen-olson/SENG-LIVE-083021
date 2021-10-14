@@ -7,7 +7,6 @@
 - Save all instances of class
 - Create a class method `.all` that returns all class instances
 - Create a class method `.find` that accepts a name as an argument. The method will find the instance that matches the name.
-- Create a starships_list class method that will print out details for each starship instance
 
 ### Lecture Take Aways
 
@@ -20,6 +19,8 @@
 
 - Syntax: double @ signs
 - Belongs to the class itself
+- if we are inside class method, can access the class variable
+- if we are inside of an instance method, we can not access the class variable
 
 ```ruby
 @@all = []
