@@ -3,7 +3,7 @@
 # Fill in the blanks
 
 class Email 
-    puts "#{self} will return Email class"
+    puts "#{self} will return ______"
 
     attr_accessor :sender, :receiver, :subject, :body
 
@@ -12,12 +12,12 @@ class Email
         self.receiver = receiver
         self.subject = subject
         self.body = body
-        puts "#{self} will return an instance of the Email class"
+        puts "#{self} will return ______"
     end 
 
     def print_signature 
         puts "Sincerely, #{self.sender}"
-        puts "#{self} will return instance of the Email class"
+        puts "#{self} will return ______"
     end 
 
 end 
