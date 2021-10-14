@@ -19,18 +19,18 @@
 #### Class Variables
 
 - Syntax: double @ signs
-- @@all = []
+- Belongs to the class itself
 
 ```ruby
-@@all
+@@all = []
 ```
 
 #### Class Methods
 
-- Syntax: method begins with self
+- Syntax: Method that is called upon the class itself. 
 
 ```ruby
-self.all
+Classname.method_name
 ```
 
 #### Remembering Objects
@@ -43,7 +43,7 @@ self.all
 ```ruby
 @@all = []
 
-def initialize(name, model)
+def initialize(parameters)
     ...
     @@all << self
 end
@@ -56,9 +56,9 @@ end
 - Will also be beneficial for utilizing mass assignment
 
 ```ruby
-def initialize(name:, model:)
-    @name = name
-    @model = model
+def initialize(parameter1:, parameter2:)
+    @attribute1 = parameter1
+    @attribute2 = parameter2
 end
 ```
 
