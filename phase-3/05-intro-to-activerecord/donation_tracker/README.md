@@ -149,8 +149,11 @@ Donation.create(amount: 500.00, date: 10/15/21, completed: true)
 Donation.create(amount: 20.00, date: 10/01/21, completed: false)
 ```
 #### For the following exercises, think about where these methods should be defined by considering separation of responsibilities. These exercises will require usage of Active Record methods:
-5. Create a method that will return the total of all donations. 
-6. Create a method that will toggle a donations completed status.
-7. Create a method that will sort the list of existing organizations in alphabetical order.
-
-solution
+5. Use the .all method to query the donations class for all records
+6. Utilize the find method to return a specific record given the id
+7. Invoke the find_by method and return a donation record by a given amount
+8. Create a new donation using the new method. Don't forget to persist this record
+9. Create a new organizating using the create method. What is the difference between the new and create method?
+10. Create a method that will return the total of all donations. 
+11. Create a method that will toggle a donations completed status.
+12. Create a method that will sort the list of existing organizations in alphabetical order.

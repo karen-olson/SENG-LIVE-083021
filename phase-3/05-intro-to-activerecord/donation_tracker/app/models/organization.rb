@@ -51,8 +51,4 @@ class Organization
         DB.execute(sql)
     end 
 
-    # Create a method that returns a single organization instances donations
-
-    def donations 
-    end 
 end 
