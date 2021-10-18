@@ -152,3 +152,5 @@ Donation.create(amount: 20.00, date: 10/01/21, completed: false)
 5. Create a method that will return the total of all donations. 
 6. Create a method that will toggle a donations completed status.
 7. Create a method that will sort the list of existing organizations in alphabetical order.
+
+solution

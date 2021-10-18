@@ -1,3 +1,7 @@
+# This file is a file designated for any database connections
+# It is considered as a configuration file 
+
+# This is specifying exactly which adapter to use and the pathfile for the database that will be created. 
 development:
   adapter: sqlite3
   database: db/development.sqlite3
