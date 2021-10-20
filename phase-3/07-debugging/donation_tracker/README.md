@@ -16,7 +16,12 @@
     - Sets up the structures of the tables: columns, associations with their types
 - What happens when we run `rake db:migrate` 
     - Schema will either be created or updated
+- Common issues: 
+    - Stuff not getting added to schema with no errors produced
+    - lowercase letters in the file name
+    - Version mismatch 
 - What tools should be used?
+    - Observation
     - How to inspect that migrations behaved as expected: 
         - `rake db:migrate:status` 
         - Check schema 
@@ -38,6 +43,11 @@
         - Test an existing instance and its related object, if there is no relation, establishing that relationship
     - Try different method calls
 - Association setup 
+
+- Testing out the associations between organization and donations:
+- Need to confirm that associations set up before i test out if they were setup correctly:
+- Where are associations set up: 1. macros set up to reflect the assocations inside of our models 2. Need to make sure that our tables reflect the associations: foriegn key column, child object table(the table that belongs to another object)
+
 
 #### Seeds File:
 - Debugging tool used: Rake Console, binding.pry
@@ -66,11 +76,12 @@ In rake console run:
 donation = Donation.create(amount: 100.00, date: 102021, completed: false)
 
 donation.donor.name
-=> NoMethodError: undefined method `name' for nil:NilClass # is trying to call name on something that is returning nil
+=> NoMethodError: undefined method `donor' for #<Donation:0x00007fe064adb9b0>
+=> NoMethodError: undefined method `name' for nil:NilClass
 ```
 
-What is this error referring to as a nil:NilClass? 
-What tool would be beneficial to debug this error? 
+What is this error referring to as a nil:NilClass? donation.donor is returning nil
+What tool would be beneficial to debug this error? console, binding.pry
 
 ```
 In rake console run:
