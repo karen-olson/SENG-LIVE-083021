@@ -8,5 +8,5 @@ use Rack::Cors do
     end
   end
 
-run ApplicationController
-use OrganizationController
+  run ApplicationController
+  use OrganizationController

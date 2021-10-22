@@ -1,8 +1,10 @@
 class ApplicationController < Sinatra::Base
 
-
     get '/' do 
-        "hello world"
+        "Hello World"
     end
 
+
+
+# should all the endpoints for organizatins be defined here or else where?
 end

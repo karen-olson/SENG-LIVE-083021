@@ -1,12 +1,18 @@
-class OrganizationController < ApplicationController
+class OrganizationController < ApplicationController 
 
-    get "/organizations" do 
+
+    # retreive all organizations 
+    # index route
+    get '/organizations' do 
         organizations = Organization.all
-        organizations.to_json
+        organizations.to_json # serialize that data into json format and return as the response
     end
 
-    get "/organizations/:id" do 
+    # retreive a single organization with a given id 
+    # show route 
+    get '/organizations/:id' do 
         organization = Organization.find(params[:id])
         organization.to_json
     end
+    
 end
