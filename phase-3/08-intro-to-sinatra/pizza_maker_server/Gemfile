@@ -1,11 +1,17 @@
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in ruby_fundamentals.gemspec
-
-gem "rake"
+gem "rake" 
 gem "rspec"
 gem "require_all"
-gem "pry"
 gem 'sqlite3'
 gem 'activerecord'
-gem 'sinatra-activerecord'
+gem 'sinatra-activerecord' 
+gem 'sinatra'
+gem "rack-cors"
+
+group :development do
+  # Auto-reload the server when files are changed
+  # https://github.com/alexch/rerun
+  gem "rerun"
+  gem "pry"
+end
