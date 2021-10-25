@@ -42,3 +42,9 @@ function Ingredient({ ingredient, deleteIngredient, onUpdateIngredient }) {
 }
 
 export default Ingredient;
+
+
+
+// deleted_items class
+// everytime an item gets deleted, i create a new deleted_items object with the info
+// if user clicks undo delete, retreive the deleted item, and create a new item with it
