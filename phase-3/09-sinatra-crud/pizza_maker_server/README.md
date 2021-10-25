@@ -1,17 +1,21 @@
-# Creating an API
+# Creating an API pt 2
 
-### Objectives: 
+### Deliverables
+Build out the following routes to handle the necessary CRUD actions:
 
-- Handle multiple GET requests in a controller
-- Use the params hash to look up data with Active Record
-- Send a JSON response using data from an Active Record model
-- Use the #to_json method to serialize JSON data
-
-### Instructions:
-
-- Start by running the server with `rake server`. In the browser, visit that endpoint with the server running: http://localhost:9292/ingredients. 
-- Discuss with the group what the result in the browser indicates and how to resolve.
-- Create an Ingredient controller
-- Define a route `/ingredients` that will return a JSON response of all ingredients
-- Test this out in Postman and the browser to confirm behavior is as expected
-- Create a route that will process an incoming request like `/ingredients/3` and return a response of Ingredient with id 3 in JSON. 
+- `POST /ingredients`: 
+    - Add a binding.pry to this route and use Postman to create a new ingredient with a name 
+    - In the Pry session, check the `params` hash for the key/value pairs that were submitted and practice accessing the values. 
+    - Create a new ingredient from the params, and return the newly created ingredient as JSON
+- `PATCH /ingredients/:id`:
+    - Add a binding.pry to this route 
+    - In a seperate terminal, cd into the `pizza_maker_client` directory and run `npm start`
+    - Click on the edit button for an ingredient, make an update, and save. This should invoke a pry session in the terminal that Sinatra server is running. 
+    - Check the params hash to confirm that updated value is received. 
+    - Find the ingredient given the id value in the params hash 
+    - Update the name of the ingredient using params
+    - Return the updated ingredient as JSON
+- `DELETE /ingredients/:id`:
+    - Find the ingredient given the id value in the params hash  
+    - Delete the ingredient from the database
+    - Test the delete button, inspect the Sinatra terminal to see if Active Record deletes the record
