@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import IngredientInterface from "./ingredient/IngredientInterface";
 
 function App() {
