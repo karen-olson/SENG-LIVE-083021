@@ -9,7 +9,7 @@ function EditDonation({ donation, onUpdateDonation }) {
     e.preventDefault();
 
     // Make a PATCH fetch request to update a single donation
-    fetch(`http://localhost:9292/donations/${id}`, {
+    fetch(`http://localhost:9292/donations/${id}/edit`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

@@ -19,7 +19,7 @@ class IngredientsController < ApplicationController
         ingredient.to_json 
     end
 
-    patch '/ingredients/:id' do 
+    patch '/ingredients/:id/edit' do 
         ingredient = Ingredient.find(params[:id])
         ingredient.update(name: params[:name])
         ingredient.to_json

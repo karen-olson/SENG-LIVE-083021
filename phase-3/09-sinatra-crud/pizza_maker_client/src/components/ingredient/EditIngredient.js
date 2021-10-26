@@ -8,7 +8,7 @@ function EditIngredient({ ingredient, onUpdateIngredient }) {
     e.preventDefault();
 
     // Make a PATCH fetch request to update a single ingredient
-    fetch(`http://localhost:9292/ingredients/${id}`, {
+    fetch(`http://localhost:9292/ingredients/${id}/edit`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

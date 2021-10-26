@@ -18,7 +18,7 @@ class DonationsController < ApplicationController
     end
 
     # Update route: 
-    patch '/donations/:id' do # dynamic route: { id: 1 } 
+    patch '/donations/:id/edit' do # dynamic route: { id: 1 } 
         # params:  {"amount"=>800.0, "id"=>"3"}
 
         # update donation with id 3 
