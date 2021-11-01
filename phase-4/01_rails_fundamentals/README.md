@@ -14,7 +14,10 @@ While coding along can be a good way to practice, if you ever feel like you're h
 
 ## What things are different with Rails than they were in Sinatra
 
-- 
+- rake vs rails
+- use generators to create files rather than using the UI to create them
+- faster by using abstraction. No more speed limiter!
+- instead of defining routes in controller, in rails we define in the config/routes.rb in rails.
 
 ## Lesson 1 Todos
 
