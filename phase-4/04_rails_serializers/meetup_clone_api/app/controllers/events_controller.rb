@@ -1,4 +1,13 @@
 class EventsController < ApplicationController
+
+  def index
+    render json: Event.all
+  end
+
+  def show
+    render json: Event.find(params[:id]), serializer: EventDetailSerializer
+  end
+
   def create
     event = current_user.created_events.create(event_params)
     if event.valid?

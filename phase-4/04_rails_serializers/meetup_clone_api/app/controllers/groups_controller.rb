@@ -4,7 +4,7 @@ class GroupsController < ApplicationController
   end
 
   def show
-    render json: Group.find(params[:id])
+    render json: Group.find(params[:id]), serializer: GroupDetailSerializer
   end
 
   def create
