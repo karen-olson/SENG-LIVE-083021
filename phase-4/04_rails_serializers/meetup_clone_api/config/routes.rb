@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :user_groups, only: [:create, :destroy]
-  resources :events, only: [:create, :update, :destroy]
+  resources :events
   resources :user_events, only: [:create, :update, :destroy]
   resources :groups, only: [:index, :show, :create]
   # resources :users
