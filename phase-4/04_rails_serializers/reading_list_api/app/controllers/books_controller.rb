@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   end
 
   def show
-    render json: Book.find(params[:id]), include: [:readers]
+    render json: Book.find(params[:id]), serializer: BookDetailSerializer
   end
 
   def create
