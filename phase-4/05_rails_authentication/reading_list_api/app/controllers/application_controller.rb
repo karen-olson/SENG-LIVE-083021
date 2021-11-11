@@ -1,10 +1,11 @@
 class ApplicationController < ActionController::API
+  include ActionController::Cookies
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   private
 
   def current_user  
-    User.first
+    User.find_by(id: session[:user_id])
   end
 
   def not_found(e) 

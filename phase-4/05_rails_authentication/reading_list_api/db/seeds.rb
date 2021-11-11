@@ -9,12 +9,14 @@
 user_1 = User.create(
   username: 'tester1',
   email: 'test@test.com',
-  bio: 'testing is my life!'
+  bio: 'testing is my life!',
+  password: 'password'
 )
 user_2 = User.create(
   username: 'tester2',
   email: 'testing@test.com',
-  bio: 'to test or not to test, that is the question'
+  bio: 'to test or not to test, that is the question',
+  password: 'password'
 )
 
 blink = user_1.books.create(
