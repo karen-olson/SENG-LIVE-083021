@@ -140,7 +140,7 @@ before_action :authorize_user, only: [:update, :destroy]
 
 >NOTE the before_actions run in order, so we can access `@event` within `authorize_user` only if we add the `before_action :authorize_user` **below** `before_action :set_event`
 
-![MVC Flow for Update with Validations and Authorization](./diagrams/mvc-flow-with-validations-update-and-authorization.png)
+![MVC Flow for Update with Validations and Authorization](../assets/mvc-flow-with-validations-update-and-authorization.png)
 
 We'll have something like this when we're finished:
 
