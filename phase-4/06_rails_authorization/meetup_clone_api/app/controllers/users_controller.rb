@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  skip_before_action :confirm_authentication
+
+
   # get '/me'
   def show
     if current_user
